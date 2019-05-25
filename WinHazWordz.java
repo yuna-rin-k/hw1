@@ -14,6 +14,6 @@ public class WinHazWordz {
 	public String search () {
 		int index = sortedDic.indexOf(key);
 		if (index > -1) return simpleDic.get(index);
-		else return "!PASS!";
+		else return "PASS";
 	}
 }
