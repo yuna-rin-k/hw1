@@ -6,7 +6,6 @@ public class Main{
 		dic.load();
 		ArrayList<String> simpleDic = dic.getSimpleDic();
 		ArrayList<String> sortedDic = dic.getSortedDic();
-		System.out.println(sortedDic.get(0));
 
 		int count = 0;
 		while (count < 10) {
