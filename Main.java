@@ -6,13 +6,15 @@ public class Main{
 		dic.load();
 		ArrayList<String> simpleDic = dic.getSimpleDic();
 		ArrayList<String> sortedDic = dic.getSortedDic();
+		System.out.println(sortedDic.get(0));
 
 		int count = 0;
 		while (count < 10) {
 			String key = doInput();
 			WinHazWordz win = new WinHazWordz(key, simpleDic, sortedDic);
-			String result = win.search();
-			if (result != "PASS")System.out.println("FIND: "+result);
+			win.insertData();
+			String result = win.runSearch();
+			if (result != "")System.out.println("FIND: "+result);
 			else System.out.println(result);
 			++count;
 		}
