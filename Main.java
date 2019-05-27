@@ -7,33 +7,44 @@ public class Main{
 		ArrayList<String> simpleDic = dic.getSimpleDic();
 		ArrayList<String> sortedDic = dic.getSortedDic();
 
-		int count = 0;
-		while (count < 10) {
+		int count = 10;
+		while (count > 0) {
 			String key = doInput();
 			WinHazWordz win = new WinHazWordz(key, simpleDic, sortedDic);
 			win.insertData();
 			String result = win.runSearch();
-			if (result != "")System.out.println("FIND: "+result);
-			else System.out.println(result);
-			++count;
+			if (result != "")System.out.println(count+". FIND: "+result);
+			else System.out.println("PASS");
+			--count;
 		}
 
 	}
 	public static String doInput(){
 
 		Scanner sc = new Scanner(System.in);
-		String s = ""; 
+		String s = sc.next();
+		char[] c = s.toCharArray();
+		Arrays.sort(c);
+		String sortedStr = String.valueOf(c);
+
+		return sortedStr;
+		
+		/*
+		Scanner sc = new Scanner(System.in);
+		String s = sc.next();
 		String sortedStr = "";
+		
 		char[] c;
-		s = sc.next();
 		c = new char[s.length()];
 		for (int i = 0 ; i < s.length(); ++i) {
 			c[i] = s.charAt(i);
 		}
 		Arrays.sort(c);
 		for (int i = 0 ; i < s.length(); ++i) {
-			sortedStr += c[i];
+			soredStr += c[i];
 		}
+
 		return sortedStr;
+		*/
 	}
 }

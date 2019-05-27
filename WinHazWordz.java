@@ -5,14 +5,13 @@ public class WinHazWordz {
 	ArrayList <String> simpleDic;
 	ArrayList <String> sortedDic;
 	String ret = "";
-	char[] onePoint = {'a','b','d','e','g','i','n','o','r','s','t','y','u'};
-	char[] twoPoint = {'c','f','h','l','m','p','v','w','y'};
-	char[] threePoint = {'j','k','Q','X','Z'};
+	char[] onePoint = {'a','b','d','e','g','i','n','o','r','s','t','u'};
+	char[] twoPoints = {'c','f','h','l','m','p','v','w','y'};
+	char[] threePoints = {'j','k','Q','X','Z'};
 	ArrayList <Character> oneP = new ArrayList <>();
 	ArrayList <Character> twoP = new ArrayList <>();
 	ArrayList <Character> threeP = new ArrayList <>();
 	ArrayList <Character> array_key;
-	//ArrayList <Character> array_s = new ArrayList<>();
 	int highP;
 
 	public WinHazWordz (String key, ArrayList<String> simpleDic, ArrayList<String> sortedDic) {
@@ -24,9 +23,8 @@ public class WinHazWordz {
 
 	public void insertData() {
 		for (int i = 0; i < onePoint.length; ++i) { oneP.add(onePoint[i]); }
-		for (int i = 0; i < twoPoint.length; ++i) { twoP.add(twoPoint[i]); }
-		for (int i = 0; i < threePoint.length; ++i) {threeP.add(threePoint[i]); }
-		//for (int i = 0; i < key.length(); ++i) {arrayKey.add(key.charAt(i)); }
+		for (int i = 0; i < twoPoints.length; ++i) { twoP.add(twoPoints[i]); }
+		for (int i = 0; i < threePoints.length; ++i) {threeP.add(threePoints[i]); }
 	}
 	
 	//keyでsを作れるか

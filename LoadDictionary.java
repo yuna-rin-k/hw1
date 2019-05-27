@@ -24,18 +24,22 @@ public class LoadDictionary{
 				while (word != null) {
 
 					simpleDictionary.add(word);
-					//sort
 					sortedWord = new char[word.length()];
-					sortedStr = "";
 					for (int i = 0; i < word.length(); ++i) {
 						char c = word.charAt(i);
 						if ((int)c < 97) c += 32;
 						sortedWord[i] = c;		
 					}
 					Arrays.sort(sortedWord);
+
+					/*
+					sortedStr = "";
 					for (int i = 0; i < word.length(); ++i) {
 						sortedStr += sortedWord[i];
 					}
+					下の1行に変更
+					*/
+					sortedStr = String.valueOf(sortedWord);
 					sortedDictionary.add(sortedStr);
 					word = dictionary.readLine();
 				}
