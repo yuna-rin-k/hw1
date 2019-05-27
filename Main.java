@@ -7,15 +7,15 @@ public class Main{
 		ArrayList<String> simpleDic = dic.getSimpleDic();
 		ArrayList<String> sortedDic = dic.getSortedDic();
 
-		int count = 10;
-		while (count > 0) {
+		int count = 1;
+		while (count <= 10) {
 			String key = doInput();
 			WinHazWordz win = new WinHazWordz(key, simpleDic, sortedDic);
 			win.insertData();
 			String result = win.runSearch();
 			if (result != "")System.out.println(count+". FIND: "+result);
 			else System.out.println("PASS");
-			--count;
+			++count;
 		}
 
 	}
