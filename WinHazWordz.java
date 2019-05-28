@@ -5,13 +5,11 @@ public class WinHazWordz {
 	ArrayList <String> simpleDic;
 	ArrayList <String> sortedDic;
 	String ret = "";
-	char[] onePoint = {'a','b','d','e','g','i','n','o','r','s','t','u'};
-	char[] twoPoints = {'c','f','h','l','m','p','v','w','y'};
-	char[] threePoints = {'j','k','Q','X','Z'};
-	ArrayList <Character> oneP = new ArrayList <>();
-	ArrayList <Character> twoP = new ArrayList <>();
-	ArrayList <Character> threeP = new ArrayList <>();
-	ArrayList <Character> array_key;
+	int[] p = {	1, 1, 2, 1, 1, 2, 1, 	//a, b, c, d, e, f, g
+			  	2, 1, 3, 3, 2, 2, 1,	//h, i, j, k ,l, m ,n
+				1, 2, 3, 1, 1, 1, 1,	//o, p, q, r, s, t, u
+				2, 2, 3, 2, 3 };		//v, w, x, y, z
+	ArrayList<Character> array_key;
 	int highP;
 
 	public WinHazWordz (String key, ArrayList<String> simpleDic, ArrayList<String> sortedDic) {
@@ -21,16 +19,10 @@ public class WinHazWordz {
 		highP = 0;
 	}
 
-	public void insertData() {
-		for (int i = 0; i < onePoint.length; ++i) { oneP.add(onePoint[i]); }
-		for (int i = 0; i < twoPoints.length; ++i) { twoP.add(twoPoints[i]); }
-		for (int i = 0; i < threePoints.length; ++i) {threeP.add(threePoints[i]); }
-	}
-	
 	//keyでsを作れるか
 	public int search (String s) {
 		array_key = new ArrayList<>();
-		int point = -1;
+		int points = -1;
 		for (int i = 0; i < key.length(); ++i) {array_key.add(key.charAt(i)); }
 		for (int i = 0; i < s.length(); ++i) {
 			if (!array_key.contains(s.charAt(i))){
@@ -41,11 +33,9 @@ public class WinHazWordz {
 			}
 		}
 		for (int i = 0; i < s.length(); ++i) {
-			if (oneP.contains(s.charAt(i))) point += 1;
-			if (twoP.contains(s.charAt(i))) point += 2;
-			if (threeP.contains(s.charAt(i))) point += 3;
+			points += p[(int)s.charAt(i)-'a']; 
 		}
-		return point;
+		return points;
 	}
 	
 

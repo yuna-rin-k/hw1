@@ -16,43 +16,35 @@ public class LoadDictionary{
 
 		try {
 			dictionary = new BufferedReader(new FileReader(textName));
+			word = dictionary.readLine();
+			char[] sortedWord;
+			String sortedStr;
 
-				word = dictionary.readLine();
-				char[] sortedWord;
-				String sortedStr;
+			while (word != null) {
 
-				while (word != null) {
-
-					simpleDictionary.add(word);
-					sortedWord = new char[word.length()];
-					for (int i = 0; i < word.length(); ++i) {
-						char c = word.charAt(i);
-						if ((int)c < 97) c += 32;
-						sortedWord[i] = c;		
-					}
-					Arrays.sort(sortedWord);
-
-					/*
-					sortedStr = "";
-					for (int i = 0; i < word.length(); ++i) {
-						sortedStr += sortedWord[i];
-					}
-					下の1行に変更
-					*/
-					sortedStr = String.valueOf(sortedWord);
-					sortedDictionary.add(sortedStr);
-					word = dictionary.readLine();
+				simpleDictionary.add(word);
+				sortedWord = new char[word.length()];
+				for (int i = 0; i < word.length(); ++i) {
+					char c = word.charAt(i);
+					//if ((int)c < 97) c += 32;
+					c = Character.toLowerCase(c);
+					sortedWord[i] = c;		
 				}
-			} catch (IOException e ) {
+				Arrays.sort(sortedWord);
+				sortedStr = String.valueOf(sortedWord);
+				sortedDictionary.add(sortedStr);
+				word = dictionary.readLine();
+			}
+		} catch (IOException e ) {
 				e.printStackTrace();
-			} finally {
-				if (dictionary != null){
-					try {
-						dictionary.close();
-					} catch (IOException e){
-					}
+		} finally {
+			if (dictionary != null){
+				try {
+					dictionary.close();
+				} catch (IOException e){
 				}
 			}
+		}
 	}	
 	public ArrayList<String> getSortedDic() {return sortedDictionary; }	
 	public ArrayList<String> getSimpleDic() {return simpleDictionary; }
