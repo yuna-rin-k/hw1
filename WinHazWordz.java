@@ -5,10 +5,12 @@ public class WinHazWordz {
 	ArrayList <String> simpleDic;
 	ArrayList <String> sortedDic;
 	String ret = "";
-	int[] p = {	1, 1, 2, 1, 1, 2, 1, 	//a, b, c, d, e, f, g
+	int[] p = {	
+				1, 1, 2, 1, 1, 2, 1, 	//a, b, c, d, e, f, g
 			  	2, 1, 3, 3, 2, 2, 1,	//h, i, j, k ,l, m ,n
 				1, 2, 3, 1, 1, 1, 1,	//o, p, q, r, s, t, u
-				2, 2, 3, 2, 3 };		//v, w, x, y, z
+				2, 2, 3, 2, 3 
+			  };		//v, w, x, y, z
 	ArrayList<Character> array_key;
 	int highP;
 
