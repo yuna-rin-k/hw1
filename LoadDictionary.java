@@ -7,7 +7,8 @@ public class LoadDictionary{
 	BufferedReader dictionary = null;
 	String word;
 	ArrayList<String> simpleDictionary = new ArrayList<>();
-	ArrayList<String> sortedDictionary = new ArrayList<>();
+	//ArrayList<String> sortedDictionary = new ArrayList<>();
+	ArrayList<int[]> arrayDictionary = new ArrayList<>();
 
 	public LoadDictionary (String textName) {
 		this.textName = textName;
@@ -17,22 +18,31 @@ public class LoadDictionary{
 		try {
 			dictionary = new BufferedReader(new FileReader(textName));
 			word = dictionary.readLine();
-			char[] sortedWord;
-			String sortedStr;
+			//char[] sortedWord;
+			//String sortedStr;
 
 			while (word != null) {
 
 				simpleDictionary.add(word);
-				sortedWord = new char[word.length()];
+
+				//apple → a_z['a']==1, a_z['p']==2, ...
+				int[] c = new int[(int)'z'+1];
+				for (int i = 0; i < word.length(); ++i) {
+					char a_z = word.charAt(i);
+					++c[(int)a_z];
+				}
+				arrayDictionary.add(c);
+
+				
+				/*sortedWord = new char[word.length()];
 				for (int i = 0; i < word.length(); ++i) {
 					char c = word.charAt(i);
-					//if ((int)c < 97) c += 32;
 					c = Character.toLowerCase(c);
 					sortedWord[i] = c;		
 				}
 				Arrays.sort(sortedWord);
 				sortedStr = String.valueOf(sortedWord);
-				sortedDictionary.add(sortedStr);
+				sortedDictionary.add(sortedStr);*/
 				word = dictionary.readLine();
 			}
 		} catch (IOException e ) {
@@ -46,7 +56,8 @@ public class LoadDictionary{
 			}
 		}
 	}	
-	public ArrayList<String> getSortedDic() {return sortedDictionary; }	
+	//public ArrayList<String> getSortedDic() {return sortedDictionary; }	
 	public ArrayList<String> getSimpleDic() {return simpleDictionary; }
+	public ArrayList<int[]> getArrayDic()  {return arrayDictionary; }
 }
 
