@@ -30,6 +30,7 @@ public class LoadDictionary{
 				for (int i = 0; i < word.length(); ++i) {
 					char a_z = word.charAt(i);
 					++c[(int)a_z];
+					if (a_z == 'q') ++i; //uを登録しない
 				}
 				arrayDictionary.add(c);
 
