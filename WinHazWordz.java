@@ -29,6 +29,7 @@ public class WinHazWordz {
 			char c = s.charAt(i);
 			if (s_word_count[(int)c] > key_word_count[(int)c]) return -1;
 			points += p[(int)c - 'a'];
+			if (c == 'q') ++i;	//uはチェックしない
 		}
 		return points;
 	}
@@ -43,6 +44,7 @@ public class WinHazWordz {
 				highPStr = s;
 			}
 		}
+		System.out.println("point: "+(highP+1)*(highP+1));
 		return highPStr;
 	}
 	
