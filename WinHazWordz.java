@@ -1,16 +1,15 @@
 import java.util.*;
 public class WinHazWordz {
 
-	static String key;
 	ArrayList <String> simpleDic;
 	ArrayList<int[]>   arrayDic;
 	String ret = "";
 	 		//  a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z
 	int[] p = {	1, 1, 2, 1, 1, 2, 1, 2, 1, 3, 3, 2, 2, 1, 1, 2, 3, 1, 1, 1, 1, 2, 2, 3, 2, 3 };
-	static int[] key_word_count;
+	int[] key;
 	int highP;
 
-	public WinHazWordz (String key, ArrayList<String> simpleDic, ArrayList<int[]> arrayDic) {
+	public WinHazWordz (int[] key, ArrayList<String> simpleDic, ArrayList<int[]> arrayDic) {
 		this.key = key;
 		this.simpleDic = simpleDic;
 		this.arrayDic  = arrayDic;
@@ -21,7 +20,7 @@ public class WinHazWordz {
 		int points = 0;
 		for (int i = 0; i < s.length(); ++i) {
 			char c = s.charAt(i);
-			if (s_word_count[(int)c-'a'] > key_word_count[(int)c-'a']) return -1;
+			if (s_word_count[(int)c-'a'] > key[(int)c-'a']) return -1;
 			points += p[(int)c - 'a'];
 		}
 		return points;
@@ -38,10 +37,6 @@ public class WinHazWordz {
 			}
 		}
 		return highPStr;
-	}
-
-	public static void runChangeToArray() {
-		key_word_count = LoadDictionary.changeToArray(key);
 	}
 	
 	/*

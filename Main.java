@@ -11,9 +11,9 @@ public class Main{
 		int count = 1;
 		while (count <= 10) {
 
-			String key = doInput();
+			String str = doInput();
+			int[] key = LoadDictionary.changeToArray(str);
 			WinHazWordz win = new WinHazWordz(key, simpleDic, arrayDic);
-			win.runChangeToArray();
 			String result = win.runSearch();
 			if (result != "")System.out.println(count+". Find: "+result);
 			else System.out.println("PASS");
@@ -24,10 +24,6 @@ public class Main{
 
 		Scanner sc = new Scanner(System.in);
 		String s = sc.next();
-		char[] c = s.toCharArray();
-		Arrays.sort(c);
-		String sortedStr = String.valueOf(c);
-
-		return sortedStr;
+		return s;
 	}
 }
