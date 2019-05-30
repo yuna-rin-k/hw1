@@ -12,7 +12,7 @@ public class Main{
 		while (count <= 10) {
 
 			String str = doInput();
-			int[] key = LoadDictionary.changeToArray(str);
+			int[] key = dic.changeToArray(str);
 			WinHazWordz win = new WinHazWordz(key, simpleDic, arrayDic);
 			String result = win.runSearch();
 			if (result != "")System.out.println(count+". Find: "+result);

@@ -36,7 +36,7 @@ public class LoadDictionary{
 		}
 	}	
 
-	public static int[] changeToArray (String s) {
+	public int[] changeToArray (String s) {
 		//apple → a_z[0 ('a'-'a')]==1, a_z[15 ('p'-'a')]==2, ...
 		int[] word_count = new int['z'-'a'+1];
 		for (int i = 0; i < s.length(); ++i) {
