@@ -7,7 +7,6 @@ public class LoadDictionary{
 	BufferedReader dictionary = null;
 	String word;
 	ArrayList<String> simpleDictionary = new ArrayList<>();
-	//ArrayList<String> sortedDictionary = new ArrayList<>();
 	ArrayList<int[]> arrayDictionary = new ArrayList<>();
 
 	public LoadDictionary (String textName) {
@@ -18,32 +17,11 @@ public class LoadDictionary{
 		try {
 			dictionary = new BufferedReader(new FileReader(textName));
 			word = dictionary.readLine();
-			//char[] sortedWord;
-			//String sortedStr;
-
 			while (word != null) {
-
+				word = word.toLowerCase();
 				simpleDictionary.add(word);
-
-				//apple → a_z['a']==1, a_z['p']==2, ...
-				int[] c = new int[(int)'z'+1];
-				for (int i = 0; i < word.length(); ++i) {
-					char a_z = word.charAt(i);
-					++c[(int)a_z];
-					if (a_z == 'q') ++i; //uを登録しない
-				}
-				arrayDictionary.add(c);
-
-				
-				/*sortedWord = new char[word.length()];
-				for (int i = 0; i < word.length(); ++i) {
-					char c = word.charAt(i);
-					c = Character.toLowerCase(c);
-					sortedWord[i] = c;		
-				}
-				Arrays.sort(sortedWord);
-				sortedStr = String.valueOf(sortedWord);
-				sortedDictionary.add(sortedStr);*/
+				int[] word_count = changeToArray(word);
+				arrayDictionary.add(word_count);
 				word = dictionary.readLine();
 			}
 		} catch (IOException e ) {
@@ -57,7 +35,17 @@ public class LoadDictionary{
 			}
 		}
 	}	
-	//public ArrayList<String> getSortedDic() {return sortedDictionary; }	
+
+	public static int[] changeToArray (String s) {
+		//apple → a_z[0 ('a'-'a')]==1, a_z[15 ('p'-'a')]==2, ...
+		int[] word_count = new int['z'-'a'+1];
+		for (int i = 0; i < s.length(); ++i) {
+			char a_z = s.charAt(i);
+			++word_count[(int)a_z-'a'];
+			if (a_z == 'q') ++i;	//qu → q
+		}
+		return word_count;
+	}
 	public ArrayList<String> getSimpleDic() {return simpleDictionary; }
 	public ArrayList<int[]> getArrayDic()  {return arrayDictionary; }
 }
