@@ -44,7 +44,6 @@ public class WinHazWordz {
 				highPStr = s;
 			}
 		}
-		System.out.println("point: "+(highP+1)*(highP+1));
 		return highPStr;
 	}
 	
