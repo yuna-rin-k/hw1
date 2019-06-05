@@ -33,9 +33,10 @@ public class Main{
 		int maxPoint = 0;
 		String bestStr = "";
 		for (int i = 0; i < dictionary.size(); ++i) {
-			if (key.contains(dictionary.get(i)) && dictionary.get(i).getPoint() > maxPoint) {
-				maxPoint = dictionary.get(i).getPoint();
-				bestStr = dictionary.get(i).getOriginal();
+			Word d = dictionary.get(i);
+			if (key.contains(d) && d.getPoint() > maxPoint) {
+				maxPoint = d.getPoint();
+				bestStr = d.getOriginal();
 			}
 		}
 		return bestStr;
