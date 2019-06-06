@@ -3,17 +3,11 @@ import java.io.*;
 
 public class LoadDictionary{
 
-	String textName;
-	BufferedReader dictionary = null;
-	String word;
-	ArrayList<Word> word_dic;
-
-	public LoadDictionary (String textName) {
-		this.textName = textName;
-		word_dic = new ArrayList<Word>();
-	}
-	public void load (){
-
+	ArrayList<Word> word_dic = new ArrayList<Word>();
+	
+	public void load (String textName){
+		BufferedReader dictionary = null;
+		String word;
 		try {
 			dictionary = new BufferedReader(new FileReader(textName));
 			word = dictionary.readLine();

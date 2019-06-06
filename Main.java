@@ -6,8 +6,8 @@ public class Main{
 	static ArrayList<Word> dictionary;
 	public static void main(String[] args) {
 
-		dic = new LoadDictionary ("dictionary.txt");
-		dic.load();
+		dic = new LoadDictionary ();
+		dic.load("dictionary.txt");
 		dictionary = dic.getDic();
 
 		int count = 1;

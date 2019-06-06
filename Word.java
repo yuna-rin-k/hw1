@@ -1,10 +1,9 @@
 public class Word {
 
 	private int[] charCounts;
-	public String original;
+	private String original;
 			//  a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z
-	int[] p = {	1, 1, 2, 1, 1, 2, 1, 2, 1, 3, 3, 2, 2, 1, 1, 2, 3, 1, 1, 1, 1, 2, 2, 3, 2, 3 };
-	int point;
+	static int[] p = {	1, 1, 2, 1, 1, 2, 1, 2, 1, 3, 3, 2, 2, 1, 1, 2, 3, 1, 1, 1, 1, 2, 2, 3, 2, 3 };
 
 	public Word (String s) {
 		/*
@@ -41,10 +40,6 @@ public class Word {
 			if (word.countsOfChar(c_w) > this.countsOfChar(c_w)) return false;
 		}
 		return true;
-	}
-
-	private int[] charCounts () {
-		return this.charCounts;
 	}
 
 	public String getOriginal () {
