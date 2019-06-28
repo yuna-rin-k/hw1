@@ -2,15 +2,15 @@ import java.util.*;
 import java.io.*;
 
 public class LoadDictionary{
-
-	ArrayList<Word> word_dic = new ArrayList<Word>();
 	
-	public void load (String textName){
+	public static ArrayList<Word> load (String fileName){
+
 		BufferedReader dictionary = null;
-		String word;
+		ArrayList<Word> word_dic = new ArrayList<Word>();
+
 		try {
-			dictionary = new BufferedReader(new FileReader(textName));
-			word = dictionary.readLine();
+			dictionary = new BufferedReader(new FileReader(fileName));
+			String word = dictionary.readLine();
 			while (word != null) {
 				Word w = new Word(word);
 				word_dic.add(w);
@@ -26,7 +26,10 @@ public class LoadDictionary{
 				}
 			}
 		}
+		return word_dic;
 	}
-	public ArrayList<Word> getDic() {return word_dic; }
+	public static ArrayList<Word> getDic(String fileName) {
+		return load(fileName);
+	}
 }
 
